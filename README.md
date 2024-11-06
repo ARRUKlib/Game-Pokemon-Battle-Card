@@ -101,13 +101,39 @@
    ```bash
    git clone https://github.com/ARRUKlib/game-pokemonbattle.git
    cd game-pokemonbattle
+   
+2. หากที่เครื่องยังไม่มี Docker ให้ทำการติดตั้ง โดยใช้คำสั่ง:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   sudo apt install -y docker.io
 
-2. Build และ Start Services:
+
+3. เมื่อทำการติดตั้ง docker เรียบร้อยให้ใช้คำสั่งต่อไปนี้ เพื่อเปิดและตั้งค่า Docker ให้เริ่มทำงานอัตโนมัติเมื่อเปิดเครื่อง::
+   ```bash
+   sudo systemctl enable --now docker
+
+4. ทำการติดตั้ง Docker-compose โดยใช้คำสั่ง:
+   ```bash
+   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+5. เปลี่ยนสิทธิ์ไฟล์ให้สามารถรันได้:
+   ```bash
+   sudo chmod +x /usr/local/bin/docker-compose
+6. ทำการเช็คเวอร์ชั่น docker-compose:
+   ```bash
+   docker-compose --version
+ควรจะเห็นผลลัพธ์เป็น : docker-compose version 1.29.2, build 5becea4c
+
+7. Build และ Start Services:
    ```bash
     sudo docker-compose up --build
-3. เข้าใช้งาน:
+   
+8. เข้าใช้งาน:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
 # การพัฒนาเพิ่มเติม
 หากต้องการพัฒนาหรือแก้ไขโค้ด สามารถทำได้โดยแก้ไขไฟล์ในโฟลเดอร์ frontend สำหรับส่วน UI และ backend สำหรับส่วน API
+
+# Credit Database
+https://www.kaggle.com/datasets/divyanshusingh369/complete-pokemon-library-32k-i
