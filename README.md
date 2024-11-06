@@ -20,15 +20,17 @@
 
 1. **GET /api/pokemon**: ดึงข้อมูลโปเกมอนทั้งหมด
    - Response: รายชื่อโปเกมอนพร้อมรายละเอียด
-  ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pokemon
+
+ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pokemon
    
-2. **GET /api/pic_poke**: ดึงภาพโปเกมอนตามชื่อ
+3. **GET /api/pic_poke**: ดึงภาพโปเกมอนตามชื่อ
    - Query Parameters: `pok_name`: ชื่อโปเกมอน
    - Response: ส่ง Base64 string ของภาพโปเกมอน
-  ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pic_poke?(ชื่อโปเกม่อน)
+
+ ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pic_poke?(ชื่อโปเกม่อน)
      
 
-3. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
+4. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
    - Body: 
      ```json
      {
@@ -40,7 +42,7 @@
      - สำเร็จ: `{ "success": true, "user_id": "ID ของผู้ใช้" }`
      - ล้มเหลว: `{ "success": false, "message": "Invalid username or password" }`
 
-4. **POST /api/register**: ลงทะเบียนผู้ใช้ใหม่
+5. **POST /api/register**: ลงทะเบียนผู้ใช้ใหม่
    - Body:
      ```json
      {
@@ -52,11 +54,11 @@
      - สำเร็จ: `{ "success": true, "message": "User registered successfully" }`
      - ล้มเหลว: `{ "success": false, "message": "Username already exists" }`
 
-5. **GET /api/user_wl**: ดึงข้อมูลแพ้ชนะเสมอของผู้ใช้
+6. **GET /api/user_wl**: ดึงข้อมูลแพ้ชนะเสมอของผู้ใช้
    - Query Parameters: `user_id`: ID ของผู้ใช้
    - Response: ข้อมูลแพ้ชนะเสมอ
 
-6. **POST /api/save_game_result**: บันทึกผลการแข่งขันและ EXP
+7. **POST /api/save_game_result**: บันทึกผลการแข่งขันและ EXP
    - Body:
      ```json
      {
@@ -69,7 +71,7 @@
      ```
    - Response: `{ "success": true, "message": "Game result and EXP saved successfully", "new_exp": "ค่า EXP ใหม่", "new_level": "ระดับใหม่" }`
 
-7. **POST /api/update_exp_and_level**: อัปเดต EXP และระดับของผู้ใช้
+8. **POST /api/update_exp_and_level**: อัปเดต EXP และระดับของผู้ใช้
    - Body:
      ```json
      {
@@ -80,7 +82,7 @@
      ```
    - Response: `{ "success": true, "new_exp": "ค่า EXP ใหม่", "new_level": "ระดับใหม่" }`
 
-8. **POST /api/update_level**: อัปเดตระดับของผู้ใช้
+9. **POST /api/update_level**: อัปเดตระดับของผู้ใช้
    - Body:
      ```json
      {
