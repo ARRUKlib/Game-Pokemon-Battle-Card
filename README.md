@@ -20,10 +20,13 @@
 
 1. **GET /api/pokemon**: ดึงข้อมูลโปเกมอนทั้งหมด
    - Response: รายชื่อโปเกมอนพร้อมรายละเอียด
-
+  ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pokemon
+   
 2. **GET /api/pic_poke**: ดึงภาพโปเกมอนตามชื่อ
    - Query Parameters: `pok_name`: ชื่อโปเกมอน
    - Response: ส่ง Base64 string ของภาพโปเกมอน
+  ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pic_poke?(ชื่อโปเกม่อน)
+     
 
 3. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
    - Body: 
