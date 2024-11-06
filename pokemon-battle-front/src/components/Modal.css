@@ -1,0 +1,52 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังมืด */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* ทำให้ Modal อยู่เหนือองค์ประกอบอื่น */
+}
+
+.modal-content {
+  background: black;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+.close-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.history {
+  margin-top: 20px;
+  color: white;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งใส */
+  padding: 10px;
+  border-radius: 8px; /* ทำให้มุมมน */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* เงา */
+}
+.match-history-button {
+  padding: 20px 20px;
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.match-history-button:hover {
+  background-color: #0056b3; /* สีเข้มขึ้นเมื่อ Hover */
+}
