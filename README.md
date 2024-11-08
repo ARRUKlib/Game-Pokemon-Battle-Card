@@ -132,10 +132,12 @@ Frontend
    - ใช้ React TypeScript
    - มีการจัดการ state ด้วย React Hooks
    - ใช้ Axios สำหรับการเรียก API
+
 Backend
    - ใช้ Express.js สำหรับสร้าง RESTful API
    - มีการเชื่อมต่อกับ PostgreSQL ผ่าน pg module
    - ใช้ bcrypt สำหรับการเข้ารหัสรหัสผ่าน
+
 Database
    - ใช้ PostgreSQL
    - มีการสร้างตารางและความสัมพันธ์ตามที่กำหนดใน init.sql
