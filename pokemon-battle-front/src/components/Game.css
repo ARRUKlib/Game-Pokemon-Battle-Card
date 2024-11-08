@@ -1,0 +1,247 @@
+.game-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.welcome-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.logout-button,
+.randomize-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.card-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.player-title {
+  color: #4CAF50;
+}
+
+.computer-title {
+  color: #f44336;
+}
+
+.vs {
+  color: #FFD700;
+}
+
+
+.pokemon-card {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 80px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  height: 500px;
+  background-image: url("../assets/images/P_30.jpg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px; /* กำหนดความกว้างสูงสุด */
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+}
+
+.pokemon-card h3 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pokemon-card p {
+  font-size: 14px;
+  margin: 5px 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pokemon-card:hover h3,
+.pokemon-card:hover p {
+  transform: translateZ(30px);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+.randomize-button {
+  padding: 20px 30px;
+  background-color: #e8a90b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.randomize-button:hover {
+  background-color: #0056b3;
+}
+
+.logout-button {
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: darkred;
+}
+
+@keyframes spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.pokemon-card.spin {
+  animation: spin 2s linear;
+}
+
+.result {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 1.5rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.scoreboard {
+  margin-top: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.history {
+  margin-top: 20px;
+  color: white;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes attack {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+@keyframes hit {
+  0%, 100% { transform: translateX(0); }
+  25%, 75% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+}
+
+.pokemon-card.attacking {
+  animation: attack 0.5s ease;
+}
+
+.pokemon-card.hit {
+  animation: hit 0.5s ease;
+}
+
+@keyframes lightning {
+  0%, 100% {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.pokemon-card.hit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  z-index: 1;
+  pointer-events: none;
+  animation: lightning 0.5s ease;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10%;
+}
+
+.left-card {
+  align-self: flex-start;
+  background-color: rgba(255, 0, 0, 0.3); /* โซนสีแดงโปร่งแสง */
+}
+
+.right-card {
+  align-self: flex-end;
+  background-color: rgba(255, 255, 255, 0.3); /* โซนสีขาวโปร่งแสง */
+}
+
+.pokemon-details {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.pokemon-details h3,
+.pokemon-details p {
+  color: white;
+  margin: 5px 0;
+}
+
+.player-card {
+  align-self: flex-start;
+  margin-right: auto; /* ดันการ์ดไปทางซ้าย */
+}
+
+.opponent-card {
+  align-self: flex-end;
+  margin-left: auto; /* ดันการ์ดไปทางขวา */
+}
