@@ -1,11 +1,6 @@
-# Pokemon Battle Card Game One Shot
+# Pokemon Battle Game
 
-เกมต่อสู้โปเกมอนแบบการ์ดที่พัฒนาด้วย React TypeScript สำหรับ Frontend, Node.js สำหรับ Backend และ PostgreSQL สำหรับฐานข้อมูล
-
-![DiagramPokemon](https://github.com/user-attachments/assets/adaf580f-3d41-4b7f-ae9c-efc7cc3fc2af)
-
-
-
+เกมต่อสู้โปเกมอนที่จำลองการต่อสู้แบบเทิร์นเบส พัฒนาด้วย React TypeScript, Node.js Backend และ PostgreSQL
 
 ## หลักการพัฒนา
 
@@ -26,16 +21,11 @@
 1. **GET /api/pokemon**: ดึงข้อมูลโปเกมอนทั้งหมด
    - Response: รายชื่อโปเกมอนพร้อมรายละเอียด
 
-ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pokemon
-   
-3. **GET /api/pic_poke**: ดึงภาพโปเกมอนตามชื่อ
+2. **GET /api/pic_poke**: ดึงภาพโปเกมอนตามชื่อ
    - Query Parameters: `pok_name`: ชื่อโปเกมอน
    - Response: ส่ง Base64 string ของภาพโปเกมอน
 
- ใช้ API ภายนอก จาก http://13.228.191.168:3001/api/pic_poke?(ชื่อโปเกม่อน)
-     
-
-4. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
+3. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
    - Body: 
      ```json
      {
@@ -47,7 +37,7 @@
      - สำเร็จ: `{ "success": true, "user_id": "ID ของผู้ใช้" }`
      - ล้มเหลว: `{ "success": false, "message": "Invalid username or password" }`
 
-5. **POST /api/register**: ลงทะเบียนผู้ใช้ใหม่
+4. **POST /api/register**: ลงทะเบียนผู้ใช้ใหม่
    - Body:
      ```json
      {
@@ -59,11 +49,11 @@
      - สำเร็จ: `{ "success": true, "message": "User registered successfully" }`
      - ล้มเหลว: `{ "success": false, "message": "Username already exists" }`
 
-6. **GET /api/user_wl**: ดึงข้อมูลแพ้ชนะเสมอของผู้ใช้
+5. **GET /api/user_wl**: ดึงข้อมูลแพ้ชนะเสมอของผู้ใช้
    - Query Parameters: `user_id`: ID ของผู้ใช้
    - Response: ข้อมูลแพ้ชนะเสมอ
 
-7. **POST /api/save_game_result**: บันทึกผลการแข่งขันและ EXP
+6. **POST /api/save_game_result**: บันทึกผลการแข่งขันและ EXP
    - Body:
      ```json
      {
@@ -76,7 +66,7 @@
      ```
    - Response: `{ "success": true, "message": "Game result and EXP saved successfully", "new_exp": "ค่า EXP ใหม่", "new_level": "ระดับใหม่" }`
 
-8. **POST /api/update_exp_and_level**: อัปเดต EXP และระดับของผู้ใช้
+7. **POST /api/update_exp_and_level**: อัปเดต EXP และระดับของผู้ใช้
    - Body:
      ```json
      {
@@ -87,7 +77,7 @@
      ```
    - Response: `{ "success": true, "new_exp": "ค่า EXP ใหม่", "new_level": "ระดับใหม่" }`
 
-9. **POST /api/update_level**: อัปเดตระดับของผู้ใช้
+8. **POST /api/update_level**: อัปเดตระดับของผู้ใช้
    - Body:
      ```json
      {
@@ -112,42 +102,38 @@
    git clone https://github.com/ARRUKlib/game-pokemonbattle.git
    cd game-pokemonbattle
    
-2. Build และ Start Services:
+2. หากที่เครื่องยังไม่มี Docker ให้ทำการติดตั้ง โดยใช้คำสั่ง:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   sudo apt install -y docker.io
+
+
+3. เมื่อทำการติดตั้ง docker เรียบร้อยให้ใช้คำสั่งต่อไปนี้ เพื่อเปิดและตั้งค่า Docker ให้เริ่มทำงานอัตโนมัติเมื่อเปิดเครื่อง::
+   ```bash
+   sudo systemctl enable --now docker
+
+4. ทำการติดตั้ง Docker-compose โดยใช้คำสั่ง:
+   ```bash
+   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+5. เปลี่ยนสิทธิ์ไฟล์ให้สามารถรันได้:
+   ```bash
+   sudo chmod +x /usr/local/bin/docker-compose
+6. ทำการเช็คเวอร์ชั่น docker-compose:
+   ```bash
+   docker-compose --version
+ควรจะเห็นผลลัพธ์เป็น : docker-compose version 1.29.2, build 5becea4c
+
+7. Build และ Start Services:
    ```bash
     sudo docker-compose up --build
    
-3. เข้าใช้งาน:
+8. เข้าใช้งาน:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
-# การใช้งาน init.sql
-ไฟล์ init.sql ใช้สำหรับการสร้างโครงสร้างฐานข้อมูลเริ่มต้น โดยมีการสร้างตารางดังนี้
-   1. users: เก็บข้อมูลผู้ใช้
-   2. pokemon: เก็บข้อมูลโปเกมอน
-   3. user_pokemon: เก็บความสัมพันธ์ระหว่างผู้ใช้และโปเกมอน
-   4. battle_history: เก็บประวัติการต่อสู้
-ไฟล์นี้จะถูกรันอัตโนมัติเมื่อ Docker container สำหรับ PostgreSQL เริ่มทำงาน ทำให้ฐานข้อมูลพร้อมใช้งานทันทีหลังจาก deploy1
-
-# โครงสร้างโค้ด
-Frontend
-   - ใช้ React TypeScript
-   - มีการจัดการ state ด้วย React Hooks
-   - ใช้ Axios สำหรับการเรียก API
-
-Backend
-   - ใช้ Express.js สำหรับสร้าง RESTful API
-   - มีการเชื่อมต่อกับ PostgreSQL ผ่าน pg module
-   - ใช้ bcrypt สำหรับการเข้ารหัสรหัสผ่าน
-
-Database
-   - ใช้ PostgreSQL
-   - มีการสร้างตารางและความสัมพันธ์ตามที่กำหนดใน init.sql
-
 # การพัฒนาเพิ่มเติม
-หากต้องการพัฒนาหรือแก้ไขโค้ด
-   - สำหรับ Frontend: แก้ไขไฟล์ในโฟลเดอร์ pokemon-battle-front
-   - สำหรับ Backend: แก้ไขไฟล์ในโฟลเดอร์ pokemon-battle-backend
-   - สำหรับ Database: แก้ไขไฟล์ init.sql หรือปรับแต่งการเชื่อมต่อใน Backend
+หากต้องการพัฒนาหรือแก้ไขโค้ด สามารถทำได้โดยแก้ไขไฟล์ในโฟลเดอร์ frontend สำหรับส่วน UI และ backend สำหรับส่วน API
 
 # Credit Database
 https://www.kaggle.com/datasets/divyanshusingh369/complete-pokemon-library-32k-i
