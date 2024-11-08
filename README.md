@@ -2,7 +2,8 @@
 
 เกมต่อสู้โปเกมอนแบบการ์ดที่พัฒนาด้วย React TypeScript สำหรับ Frontend, Node.js สำหรับ Backend และ PostgreSQL สำหรับฐานข้อมูล
 
-![DiagramPokemon](https://github.com/user-attachments/assets/559858d3-752a-44d9-a989-21cfff49d84e)
+![DiagramPokemon](https://github.com/user-attachments/assets/adaf580f-3d41-4b7f-ae9c-efc7cc3fc2af)
+
 
 
 
