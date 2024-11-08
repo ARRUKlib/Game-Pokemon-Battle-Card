@@ -143,8 +143,11 @@ Database
 
 # การพัฒนาเพิ่มเติม
 หากต้องการพัฒนาหรือแก้ไขโค้ด
+
    สำหรับ Frontend: แก้ไขไฟล์ในโฟลเดอร์ frontend
+   
    สำหรับ Backend: แก้ไขไฟล์ในโฟลเดอร์ backend
+   
    สำหรับ Database: แก้ไขไฟล์ init.sql หรือปรับแต่งการเชื่อมต่อใน Backend
 
 # Credit Database
