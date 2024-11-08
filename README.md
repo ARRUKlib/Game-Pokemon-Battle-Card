@@ -2,6 +2,10 @@
 
 เกมต่อสู้โปเกมอนที่จำลองการต่อสู้แบบเทิร์นเบส พัฒนาด้วย React TypeScript, Node.js Backend และ PostgreSQL
 
+![DiagramPokemon](https://github.com/user-attachments/assets/977a754c-3da4-410d-a662-ade6249b8d1a)
+
+
+
 ## หลักการพัฒนา
 
 โปรเจกต์นี้เป็นเกมต่อสู้โปเกมอนที่พัฒนาโดยใช้หลักการออกแบบเชิงวัตถุ (Object-Oriented Design) เพื่อจำลองการต่อสู้ระหว่างโปเกมอน โครงสร้างหลักของโปรเจกต์ประกอบด้วย:
@@ -97,43 +101,51 @@
 
 ### ขั้นตอนการ Deploy
 
-1. Clone โปรเจกต์:
+1. Clone โปรเจกต์
    ```bash
    git clone https://github.com/ARRUKlib/game-pokemonbattle.git
    cd game-pokemonbattle
-   
-2. หากที่เครื่องยังไม่มี Docker ให้ทำการติดตั้ง โดยใช้คำสั่ง:
-   ```bash
-   sudo apt update
-   sudo apt upgrade
-   sudo apt install -y docker.io
 
-
-3. เมื่อทำการติดตั้ง docker เรียบร้อยให้ใช้คำสั่งต่อไปนี้ เพื่อเปิดและตั้งค่า Docker ให้เริ่มทำงานอัตโนมัติเมื่อเปิดเครื่อง::
-   ```bash
-   sudo systemctl enable --now docker
-
-4. ทำการติดตั้ง Docker-compose โดยใช้คำสั่ง:
-   ```bash
-   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-5. เปลี่ยนสิทธิ์ไฟล์ให้สามารถรันได้:
-   ```bash
-   sudo chmod +x /usr/local/bin/docker-compose
-6. ทำการเช็คเวอร์ชั่น docker-compose:
-   ```bash
-   docker-compose --version
-ควรจะเห็นผลลัพธ์เป็น : docker-compose version 1.29.2, build 5becea4c
-
-7. Build และ Start Services:
+2. สร้างและเริ่มต้น Services ด้วย Docker Compose
    ```bash
     sudo docker-compose up --build
    
-8. เข้าใช้งาน:
+3. เข้าใช้งาน:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
+# การใช้งาน init.sql
+ไฟล์ init.sql ใช้สำหรับการสร้างโครงสร้างฐานข้อมูลเริ่มต้น โดยมีการสร้างตารางดังนี้
+
+   1. users: เก็บข้อมูลผู้ใช้
+   2. pokemon: เก็บข้อมูลโปเกมอน
+   3. user_pokemon: เก็บความสัมพันธ์ระหว่างผู้ใช้และโปเกมอน
+   4. battle_history: เก็บประวัติการต่อสู้
+
+ไฟล์นี้จะถูกรันอัตโนมัติเมื่อ Docker container สำหรับ PostgreSQL เริ่มทำงาน ทำให้ฐานข้อมูลพร้อมใช้งานทันทีหลังจาก deploy
+
+# โครงสร้างโค้ด
+Frontend
+   - ใช้ React TypeScript
+   - มีการจัดการ state ด้วย React Hooks
+   - ใช้ Axios สำหรับการเรียก API
+
+Backend
+   - ใช้ Express.js สำหรับสร้าง RESTful API
+   - มีการเชื่อมต่อกับ PostgreSQL ผ่าน pg module
+   - ใช้ bcrypt สำหรับการเข้ารหัสรหัสผ่าน
+
+Database
+   - ใช้ PostgreSQL
+   - มีการสร้างตารางและความสัมพันธ์ตามที่กำหนดใน init.sql
+
+
+
 # การพัฒนาเพิ่มเติม
-หากต้องการพัฒนาหรือแก้ไขโค้ด สามารถทำได้โดยแก้ไขไฟล์ในโฟลเดอร์ frontend สำหรับส่วน UI และ backend สำหรับส่วน API
+หากต้องการพัฒนาหรือแก้ไขโค้ด
+   สำหรับ Frontend: แก้ไขไฟล์ในโฟลเดอร์ frontend
+   สำหรับ Backend: แก้ไขไฟล์ในโฟลเดอร์ backend
+   สำหรับ Database: แก้ไขไฟล์ init.sql หรือปรับแต่งการเชื่อมต่อใน Backend
 
 # Credit Database
 https://www.kaggle.com/datasets/divyanshusingh369/complete-pokemon-library-32k-i
