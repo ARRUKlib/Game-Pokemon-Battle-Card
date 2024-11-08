@@ -1,6 +1,6 @@
-# Pokemon Battle Game
+# Pokemon Battle Card Game One Shot
 
-เกมต่อสู้โปเกมอนที่จำลองการต่อสู้แบบเทิร์นเบส พัฒนาด้วย React TypeScript, Node.js Backend และ PostgreSQL
+เกมต่อสู้โปเกมอนแบบการ์ดที่พัฒนาด้วย React TypeScript สำหรับ Frontend, Node.js สำหรับ Backend และ PostgreSQL สำหรับฐานข้อมูล
 
 ![DiagramPokemon](https://github.com/user-attachments/assets/559858d3-752a-44d9-a989-21cfff49d84e)
 
@@ -119,8 +119,32 @@
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
+# การใช้งาน init.sql
+ไฟล์ init.sql ใช้สำหรับการสร้างโครงสร้างฐานข้อมูลเริ่มต้น โดยมีการสร้างตารางดังนี้
+   1. users: เก็บข้อมูลผู้ใช้
+   2. pokemon: เก็บข้อมูลโปเกมอน
+   3. user_pokemon: เก็บความสัมพันธ์ระหว่างผู้ใช้และโปเกมอน
+   4. battle_history: เก็บประวัติการต่อสู้
+ไฟล์นี้จะถูกรันอัตโนมัติเมื่อ Docker container สำหรับ PostgreSQL เริ่มทำงาน ทำให้ฐานข้อมูลพร้อมใช้งานทันทีหลังจาก deploy1
+
+# โครงสร้างโค้ด
+Frontend
+   - ใช้ React TypeScript
+   - มีการจัดการ state ด้วย React Hooks
+   - ใช้ Axios สำหรับการเรียก API
+Backend
+   - ใช้ Express.js สำหรับสร้าง RESTful API
+   - มีการเชื่อมต่อกับ PostgreSQL ผ่าน pg module
+   - ใช้ bcrypt สำหรับการเข้ารหัสรหัสผ่าน
+Database
+   - ใช้ PostgreSQL
+   - มีการสร้างตารางและความสัมพันธ์ตามที่กำหนดใน init.sql
+
 # การพัฒนาเพิ่มเติม
-หากต้องการพัฒนาหรือแก้ไขโค้ด สามารถทำได้โดยแก้ไขไฟล์ในโฟลเดอร์ frontend สำหรับส่วน UI และ backend สำหรับส่วน API
+หากต้องการพัฒนาหรือแก้ไขโค้ด
+   - สำหรับ Frontend: แก้ไขไฟล์ในโฟลเดอร์ pokemon-battle-front
+   - สำหรับ Backend: แก้ไขไฟล์ในโฟลเดอร์ pokemon-battle-backend
+   - สำหรับ Database: แก้ไขไฟล์ init.sql หรือปรับแต่งการเชื่อมต่อใน Backend
 
 # Credit Database
 https://www.kaggle.com/datasets/divyanshusingh369/complete-pokemon-library-32k-i
