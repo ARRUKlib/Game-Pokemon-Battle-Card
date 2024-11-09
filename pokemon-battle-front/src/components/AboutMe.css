@@ -1,0 +1,62 @@
+.about-me-container {
+  display: flex;
+  flex-direction: column; /* จัดเรียงเนื้อหาในแนวตั้ง */
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+  justify-content: flex-start; /* เริ่มต้นจากด้านบน */
+  background-image: url("../assets/images/background-image.jpg"); /* พื้นหลังของหน้า */
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  min-height: 100vh; /* ความสูงเต็มหน้าจอ */
+}
+
+.section {
+  background-color: rgba(255, 255, 255, 0.9); /* สีพื้นหลังขาวโปร่งแสง */
+  padding: 20px;
+  margin-bottom: 30px; /* เพิ่มช่องว่างระหว่างแต่ละส่วน */
+  border-radius: 15px; /* ทำให้มุมของกรอบโค้งมน */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเพื่อให้กรอบดูมีมิติ */
+  max-width: 900px; /* กำหนดความกว้างสูงสุดของ section */
+  width: 100%; /* กำหนดให้ section ใช้ความกว้างเต็มที่ภายใน container */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* จัดปุ่มให้อยู่ด้านขวา */
+}
+
+.back-button {
+  background-color: #007bff; /* สีพื้นหลังของปุ่ม (ฟ้า) */
+  color: white; /* สีของข้อความในปุ่ม */
+  padding: 10px 20px; /* ขนาดของปุ่ม */
+  border-radius: 5px; /* ทำให้ขอบของปุ่มโค้งมน */
+  border: none; /* ไม่มีขอบ */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ */
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column; /* จัดเรียงรูปภาพในแนวตั้ง */
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+}
+
+.about-image {
+  width: auto;
+  height: auto;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.cite-image {
+  max-width: none; /* ปิดการจำกัดขนาด */
+}
