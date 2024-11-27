@@ -1,0 +1,27 @@
+# Dockerfile.backend
+
+FROM node:14
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# install bcrypt
+RUN npm rebuild bcrypt --build-from-source
+
+# Copy the rest of the application code
+COPY . .
+
+# ติดตั้ง postgresql-client เพื่อใช้ pg_isready
+RUN apt-get update && apt-get install -y postgresql-client
+
+# Expose the port the app runs on
+EXPOSE 3001
+
+# Command to check if PostgreSQL is ready before starting the server
+CMD ["sh", "-c", "until pg_isready -h $DB_HOST -p 5432; do echo waiting for database; sleep 2; done && node server.js"]
