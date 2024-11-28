@@ -1,0 +1,49 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #333; /* สีฟอนต์หลัก */
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    color: #0056b3; /* สีฟอนต์สำหรับหัวข้อ */
+  }
+  
+  .modal-content p {
+    color: #4a4a4a; /* สีฟอนต์สำหรับข้อความ */
+  }
+  
+  .modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: #45a049;
+  }
+  
+  /* เพิ่มสีสำหรับผู้ชนะ */
+  .winner {
+    color: #e8a90b; /* สีทอง */
+    font-weight: bold;
+  }
