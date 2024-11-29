@@ -111,7 +111,7 @@
     sudo docker-compose up --build
    
 3. เข้าใช้งาน:
-- Frontend: http://localhost:3000
+- Frontend: http://localhost
 - Backend: http://localhost:3001
 
 # การใช้งาน init.sql
