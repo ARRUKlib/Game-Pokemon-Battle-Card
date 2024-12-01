@@ -20,8 +20,9 @@
 2. **Backend**: พัฒนาด้วย Node.js กับ Express เพื่อสร้าง RESTful API ที่รวดเร็วและมีประสิทธิภาพ
 3. **Database**: ใช้ PostgreSQL เพื่อจัดเก็บข้อมูลผู้เล่น, โปเกมอน, และสถิติการเล่น
 
-## API ที่สำคัญ
+## APIs ที่สำคัญ
 
+API ภายนอก จาก http://apipokemon.apiexall.com:3001/api/pokemon
 1. **GET /api/pokemon**: ดึงข้อมูลโปเกมอนทั้งหมด
    - Response: รายชื่อโปเกมอนพร้อมรายละเอียด
 
@@ -29,6 +30,7 @@
    - Query Parameters: `pok_name`: ชื่อโปเกมอน
    - Response: ส่ง Base64 string ของภาพโปเกมอน
 
+API ภายใน จาก http://apipokemon.apiexall.com:3001/api/pic_poke
 3. **POST /api/user_id**: ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
    - Body: 
      ```json
