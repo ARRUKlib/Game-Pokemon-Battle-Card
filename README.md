@@ -2,7 +2,7 @@
 
 เกมต่อสู้โปเกมอนที่จำลองการต่อสู้แบบเทิร์นเบส พัฒนาด้วย React TypeScript, Node.js Backend และ PostgreSQL
 
-![DiagramPokemon](https://github.com/user-attachments/assets/977a754c-3da4-410d-a662-ade6249b8d1a)
+![DiagramPokemon drawio](https://github.com/user-attachments/assets/8ca8887e-e151-45b2-821c-a453c3554e69)
 
 
 
